@@ -2,6 +2,8 @@ import { PaginationType } from '../commons';
 
 export type FetchCharactersParams = {
   page?: number;
+  name?: string;
+  species?: string;
 };
 
 interface Location {
