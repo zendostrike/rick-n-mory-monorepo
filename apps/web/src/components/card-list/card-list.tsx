@@ -14,6 +14,7 @@ export function CardList({ items = [] }: Props) {
       {items.map((item) => (
         <Card
           key={item.id}
+          id={item.id.toString()}
           name={item.name}
           species={item.species}
           srcImage={item.image}

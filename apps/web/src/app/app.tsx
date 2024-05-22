@@ -1,13 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Home } from '../screens/Home';
-import { Detail } from '../screens/Detail';
+import { Home } from '../screens/home';
+import { Detail } from '../screens/detail';
 
 export function App() {
   return (
     <Routes>
       <Route index element={<Home />} />
-      <Route path="/detail" element={<Detail />} />
+      <Route path="/detail/:characterId" element={<Detail />} />
     </Routes>
   );
 }

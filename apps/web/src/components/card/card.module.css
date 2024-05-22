@@ -4,6 +4,7 @@
   background-color: #0d164b;
   color: #fff;
   max-width: 320px;
+  cursor: pointer;
 }
 
 .card_img {

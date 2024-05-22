@@ -1,4 +1,4 @@
-import { PaginationType } from '../commons';
+import { PaginationType } from '../../commons/types';
 
 export type FetchCharactersParams = {
   page?: number;

@@ -1,3 +1,2 @@
-export * from './query';
-export * from './api';
-export * from './types';
+export * from './getAllCharacters';
+export * from './getSingleCharacter';

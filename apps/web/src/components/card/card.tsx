@@ -1,14 +1,22 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './card.module.css';
 
 type Props = {
+  id: string;
   name: string;
   species: string;
   srcImage: string;
 };
 
-export function Card({ name, species, srcImage }: Props) {
+export function Card({ id, name, species, srcImage }: Props) {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/detail/${id}`);
+  };
+
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleNavigate}>
       <img src={srcImage} alt="character img" className={styles.card_img} />
 
       <div className={styles.info}>
