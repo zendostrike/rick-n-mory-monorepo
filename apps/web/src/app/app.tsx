@@ -1,12 +1,47 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { useState } from 'react';
+import { useCharacters } from '@react-n-morty-monorepo/data';
+
 import styles from './app.module.css';
 
-import NxWelcome from './nx-welcome';
+import { CardList, Pagination, Navbar } from '../components';
 
 export function App() {
+  const [page, setPage] = useState(1);
+
+  const { data, isLoading, isPlaceholderData } = useCharacters({ page });
+
+  const handleNext = () => {
+    if (!isPlaceholderData && data?.info.next) {
+      setPage((old) => old + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (!isPlaceholderData && data?.info.prev) {
+      setPage((old) => old - 1);
+    }
+  };
+
+  if (isLoading) {
+    return <div>Data is loading...</div>;
+  }
+
   return (
     <div>
-      <NxWelcome title="web" />
+      <Navbar />
+
+      <div className={styles.card_list_wrapper}>
+        <CardList items={data?.results} />
+      </div>
+
+      <div className={styles.load_more_wrapper}>
+        <Pagination
+          hasNext={!!data?.info.next}
+          hasPrev={!!data?.info.prev}
+          onNext={handleNext}
+          onPrev={handlePrev}
+        />
+      </div>
     </div>
   );
 }

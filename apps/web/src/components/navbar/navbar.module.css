@@ -1,0 +1,12 @@
+.navbar {
+  background-color: darkcyan;
+  padding: 24px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search_section {
+  display: flex;
+  column-gap: 12px;
+}
